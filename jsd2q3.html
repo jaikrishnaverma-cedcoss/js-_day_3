@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js D2 Q3</title>
+</head>
+
+<body>
+    <div class="conatiner">
+        <form action="" onsubmit="return func()">
+            <table>
+                <tr>
+                    <td>Name*:</td>
+                    <td> <input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td>Email*:</td>
+                    <td>
+                        <input type="email" id="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone*:</td>
+                    <td>
+                        <input type="number" id="phone">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address*:</td>
+                    <td>
+                        <input type="text" id="address">
+                    </td>
+                </tr>
+                <tr>
+                    <td>City*:</td>
+                    <td>
+                        <input type="text" id="city">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Post Code*:</td>
+                    <td>
+                        <input type="password" id="post_code">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Provincce*:</td>
+                    <td>
+                        <select name="" id="Province">
+                            <option value="">Ontario</option>
+                            <option value="">Phontario</option>
+                            <option value="">Cikota</option>
+                            <option value="">Layphibo</option>
+                            <option value="">Salvrish</option>
+                            <option value="">Siksan</option>
+                            <option value="">Sikbola</option>
+                            <option value="">Puprit</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product1:</td>
+                    <td><input type="text" id="product1"></td>
+                </tr>
+                <tr>
+                    <td>Product2</td>
+                    <td><input type="text" id="product2"></td>
+                </tr>
+                <tr>
+                    <td>Product3</td>
+                    <td><input type="text" id="product3"> </td>
+                </tr>
+                <tr>
+                    <td>Delivery Time:</td>
+                    <td><select name="" id="deliveryTime">
+                            <option value="">1 Day</option>
+                            <option value="">2 Days</option>
+                            <option value="">3 Days</option>
+                        <option value="">1 Week</option>
+                            <option value="">1 Month</option>
+                            <option value="">1 Year</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <button type="submit">Place Order</button>
+
+        </form>
+    </div>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            display: block;
+        }
+        input,select{
+            width:100%
+        }
+    </style>
+    <script>
+        function func()
+        {
+            
+           var name=document.getElementById('name').value;
+    
+
+
+           var email=document.getElementById('email').value;
+        //    alert(/[!@#$%^&*]/.test(email[0]));
+        //    var phone=document.getElementById('phone').value;
+        //    var address=document.getElementById('address').value;
+        //    var city=document.getElementById('city').value;
+        //    var post_code=document.getElementById('post_code').value;
+        //    var Provincce=document.getElementById('Provincce').value;
+        //    var product1=document.getElementById('product1').value;
+        //    var product2=document.getElementById('product2').value;
+        //    var product3=document.getElementById('product3').value;
+        //    var delivery_time=document.getElementById('delivery_time').value;
+        // alert(email.length)
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+           if(name !=titleCase(name)||name.length>25 ) {
+                alert("Name should be In proper Case & ,max length will be 25 characters allowed");
+                return false;
+            }
+            else if(email.length>=10)
+            {  
+                alert("Please enter a valid email address max alowed char is 30.");  
+                return false;
+            }
+            else{
+                return true;
+            }
+          
+        }
+        function titleCase(string) {
+            let sentence = string.toLowerCase().split(" ");
+            for (let i = 0; i < sentence.length; i++) 
+            {
+                sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+            }
+
+            return sentence.join(" ");
+        }
+    </script>
+
+</body>
+
+</html>
