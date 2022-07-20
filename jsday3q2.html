@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Day3 Q2</title>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <select name="" id="sel1" multiple>
+
+            </select>
+        </div>
+        <button onclick="myfun()">>></button>
+        <div>
+            <select name="" id="sel2" multiple></select>
+        </div>
+    </div>
+    <style>
+        body {
+            height: 560px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            width: 50%;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        select {
+            height: 200px;
+            width: 150px;
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+        }
+    </style>
+    <script>
+        var optionerr = ["Option1", "Option2", "Option3", "Option4", "Option5"];
+        var sel2 = [];
+        var selected = [];
+        document.getElementById('sel1').innerHTML = makeOption(optionerr);
+
+        function myfun() {
+            var cnt = 0;
+            var df = 0;
+            var newly = [];
+            for (var option of document.getElementById('sel1').options) {
+                if (option.selected) {
+                    optionerr.splice(cnt - df, 1);
+                    selected.push(option.value);
+                    df++;
+                }
+                cnt++;
+            }
+            document.getElementById('sel1').innerHTML = makeOption(optionerr);
+            document.getElementById('sel2').innerHTML = makeOption(selected);
+        }
+
+
+
+
+        function makeOption(optioner) {
+            var temp = "";
+            for (var x = 0; x < optioner.length; x++) {
+                temp += '<option value="' + optioner[x] + '">' + optioner[x] + '</option>';
+            }
+            return temp;
+        }
+    </script>
+</body>
+
+</html>
