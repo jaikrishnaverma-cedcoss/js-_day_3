@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS D3 Q1</title>
+</head>
+<body >
+    <form action="">
+        <select name="" id="product" onchange="doit()" >
+            <option value="iphone">iphone</option>
+            <option value="window">window</option>
+            <option value="nokia">nokia</option>
+            <option value="realme">realme .etc</option>
+        </select>
+    </form>
+    <table>
+        <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Model_number</th>
+                    <th>Price</th>
+                    <th>Availabilty</th>
+                </tr>            
+        </thead>
+        <tbody id="tb">
+       
+        </tbody>
+    </table>
+    <style>
+        select{
+            margin:50px;
+            height: 30px;
+            width:150px
+        }
+        td,th{
+            border:1px solid black;
+            padding: 5px;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script>
+        var arr=[{"Product_name":"iphone","Model_number":"M0Iphone","price":"150","availabilty":"true"},{"Product_name":"nokia","Model_number":"M0nokia","price":"350","availabilty":"false"},{"Product_name":"window","Model_number":"M0window","price":"550","availabilty":"true"},{"Product_name":"realme","Model_number":"M0realme","price":"50","availabilty":"true"}]
+        function doit()
+        {
+            var selected=document.getElementById('product').value;
+            for(var i=0;i<arr.length;i++)
+            {
+
+                // alert(arr[i].Product_name);
+                if(arr[i].Product_name==selected)
+                {
+                    var temp="<tr><td>"+arr[i].Product_name+"</td><td>"+arr[i].Model_number+"</td><td>"+arr[i].price+"</td><td>"+arr[i].availabilty+"</td></tr>";
+            //    alert(temp);
+                    document.getElementById('tb').innerHTML=temp;
+
+                }
+            }
+        }
+                 
+    </script>
+</body>
+</html>
