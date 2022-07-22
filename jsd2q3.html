@@ -10,7 +10,7 @@
 
 <body>
     <div class="conatiner">
-        <form action="" onsubmit="return func()">
+        <form action="#" onsubmit="return func()">
             <table>
                 <tr>
                     <td>Name*:</td>
@@ -25,7 +25,7 @@
                 <tr>
                     <td>Phone*:</td>
                     <td>
-                        <input type="number" id="phone">
+                        <input type="number" oninput="check(this)" maxlength="10" id="phone">
                     </td>
                 </tr>
                 <tr>
@@ -43,111 +43,164 @@
                 <tr>
                     <td>Post Code*:</td>
                     <td>
-                        <input type="password" id="post_code">
+                        <input type="number" oninput="check(this)" maxlength="6" id="post_code">
                     </td>
                 </tr>
                 <tr>
                     <td>Provincce*:</td>
                     <td>
-                        <select name="" id="Province">
-                            <option value="">Ontario</option>
-                            <option value="">Phontario</option>
-                            <option value="">Cikota</option>
-                            <option value="">Layphibo</option>
-                            <option value="">Salvrish</option>
-                            <option value="">Siksan</option>
-                            <option value="">Sikbola</option>
-                            <option value="">Puprit</option>
+                        <select name="Province" id="Province">
+                            <option value="Ontario">Ontario</option>
+                            <option value="Phontario">Phontario</option>
+                            <option value="Cikota">Cikota</option>
+                            <option value="Layphibo">Layphibo</option>
+                            <option value="Salvrish">Salvrish</option>
+                            <option value="Siksan">Siksan</option>
+                            <option value="Sikbola">Sikbola</option>
+                            <option value="Puprit">Puprit</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Product1:</td>
-                    <td><input type="text" id="product1"></td>
+                    <td><input type="number" id="product1"></td>
                 </tr>
                 <tr>
                     <td>Product2</td>
-                    <td><input type="text" id="product2"></td>
+                    <td><input type="number" id="product2"></td>
                 </tr>
                 <tr>
                     <td>Product3</td>
-                    <td><input type="text" id="product3"> </td>
+                    <td><input type="number" id="product3"> </td>
                 </tr>
                 <tr>
                     <td>Delivery Time:</td>
                     <td><select name="" id="deliveryTime">
-                            <option value="">1 Day</option>
-                            <option value="">2 Days</option>
-                            <option value="">3 Days</option>
-                        <option value="">1 Week</option>
-                            <option value="">1 Month</option>
-                            <option value="">1 Year</option>
+                            <option value="1 Day">1 Day</option>
+                            <option value="2 Day">2 Days</option>
+                            <option value="3 Day">3 Days</option>
+                            <option value="1 Week">1 Week</option>
+                            <option value="1 Month">1 Month</option>
+                            <option value="1 Year">1 Year</option>
                         </select>
                     </td>
                 </tr>
+
+                <tr>
+                    <td colspan="2" style="text-align:center;width: 100%;"><button type="submit">Place Order</button>
+                    </td>
+                </tr>
             </table>
-
-            <button type="submit">Place Order</button>
-
         </form>
+
+
+
+    </div>
+    <div class="conatiner" style="    display: flex;
+    flex-direction: column;
+    align-items: center;">
+        <h2 style="    text-align: center;">My Shop's Invoice</h2>
+        <table id="tb">
+            <tr>
+                <td>Name</td>
+                <td>:</td>
+                <td id="name1"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td id="email1"></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>:</td>
+                <td id="phone1"></td>
+            </tr>
+            <tr>
+                <td>Delivery Address</td>
+                <td>:</td>
+                <td id="address1"></td>
+            </tr>
+            <tr>
+                <td id="p1"> Product 1 @ $10.00</td>
+                <td>:</td>
+                <td id="product11"></td>
+            </tr>
+            <tr>
+                <td id="p2"> Product 2 @ $20.00</td>
+                <td>:</td>
+                <td id="product21"></td>
+            </tr>
+            <tr>
+                <td id="p3"> Product 3 @ $30.00</td>
+                <td>:</td>
+                <td id="product31"></td>
+            </tr>
+            <tr>
+                <td>Shipping Charges</td>
+                <td>:</td>
+                <td id="shipping1"></td>
+            </tr>
+            <tr>
+                <td>Sub Total</td>
+                <td>:</td>
+                <td id="subtotal1"></td>
+            </tr>
+            <tr>
+                <td>Taxes @ 13%</td>
+                <td>:</td>
+                <td id="tax1"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>:</td>
+                <td id="total1"></td>
+            </tr>
+        </table>
     </div>
     <style>
         body {
             display: flex;
             justify-content: center;
+            flex-direction: column;
         }
 
         .container {
             display: block;
         }
-        input,select{
-            width:100%
+
+        input,
+        select {
+            width: 100%
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        table {
+            padding: 40px;
+            border: 2px solid black;
+            width: 550px;
+        }
+
+        #tb tr td {
+            width: 33.333%;
+        }
+
+        #tb tr td:nth-child(2) {
+            text-align: center;
+        }
+        button{
+            padding:10px;
+            margin-top:20px;
+            font-size: 22px;
         }
     </style>
-    <script>
-        function func()
-        {
-            
-           var name=document.getElementById('name').value;
-    
-
-
-           var email=document.getElementById('email').value;
-        //    alert(/[!@#$%^&*]/.test(email[0]));
-        //    var phone=document.getElementById('phone').value;
-        //    var address=document.getElementById('address').value;
-        //    var city=document.getElementById('city').value;
-        //    var post_code=document.getElementById('post_code').value;
-        //    var Provincce=document.getElementById('Provincce').value;
-        //    var product1=document.getElementById('product1').value;
-        //    var product2=document.getElementById('product2').value;
-        //    var product3=document.getElementById('product3').value;
-        //    var delivery_time=document.getElementById('delivery_time').value;
-        // alert(email.length)
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-           if(name !=titleCase(name)||name.length>25 ) {
-                alert("Name should be In proper Case & ,max length will be 25 characters allowed");
-                return false;
-            }
-            else if(email.length>=10)
-            {  
-                alert("Please enter a valid email address max alowed char is 30.");  
-                return false;
-            }
-            else{
-                return true;
-            }
-          
-        }
-        function titleCase(string) {
-            let sentence = string.toLowerCase().split(" ");
-            for (let i = 0; i < sentence.length; i++) 
-            {
-                sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
-            }
-
-            return sentence.join(" ");
-        }
+    <script src="q3.js">
+       
     </script>
 
 </body>
